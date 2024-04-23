@@ -26,9 +26,8 @@ const mostrarDetalle = (id) => {
 fetch(URL_UBICACIONES)
 .then(data => data.json())
 .then(result => {
-    const results = result.results;
-    const primerResultado = results[0];
-    const segundoResultado = results[1];
-    mostrarTarjeta(primerResultado);
-    mostrarTarjeta(segundoResultado);
+    const results = result.results.slice(0,15);
+    results.forEach(element => {
+        mostrarTarjeta(element);
+    });
 })
