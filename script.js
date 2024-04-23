@@ -5,6 +5,9 @@ const mostrarTarjeta = (ubicacion) => {
     console.log(ubicacion);
     const contenedor = document.getElementById("contenedor")
     const li = document.createElement('li');
+    li.addEventListener('click', () => {
+        mostrarDetalle(ubicacion)
+    })
 
     const titulo = document.createElement('h3');
     titulo.innerText = ubicacion.name;
@@ -15,6 +18,10 @@ const mostrarTarjeta = (ubicacion) => {
     li.appendChild(descripcion);
 
     contenedor.appendChild(li);
+}
+
+const mostrarDetalle = (ubicacion) => {
+    window.location.href = "http://127.0.0.1:5500/detalles.html"
 }
 
 fetch(URL_UBICACIONES)
